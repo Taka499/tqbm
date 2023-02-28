@@ -13,12 +13,16 @@ if sys.argv[1].lower().strip() == 'make':  # exec Makefile commands
     # Stop to avoid setup.py raising non-standard command error
     sys.exit(0)
 
+# Here is modified to install the required package for uploading the information to Discord
 setup(use_scm_version=True, 
       install_requires=[
            'requests',
       ])
 
-# I have overwritten this setup.py
+
+# Following comments are my trials for overwriting the setup.py
+# It failed due to the metadata and dependency problem
+
 
 # Check if the package 'requests' is installed
 # If it's not installed, then install it
