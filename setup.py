@@ -20,17 +20,17 @@
 # Check if the package 'requests' is installed
 # If it's not installed, then install it
 # The following process referenced from https://stackoverflow.com/questions/44210656/how-to-check-if-a-module-is-installed-in-python-and-if-not-install-it-within-t
-import sys
-import subprocess
-import pkg_resources
+# import sys
+# import subprocess
+# import pkg_resources
 
-required = {'requests'}
-installed = {pkg.key for pkg in pkg_resources.working_set}
-missing = required - installed
+# required = {'requests'}
+# installed = {pkg.key for pkg in pkg_resources.working_set}
+# missing = required - installed
 
-if missing:
-    python = sys.executable
-    subprocess.check_call([python, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL)
+# if missing:
+#     python = sys.executable
+#     subprocess.check_call([python, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL)
 
 import socket
 import os
@@ -69,4 +69,7 @@ setup(name='tqbm', #package name
       author='test',
       license='MIT',
       zip_safe=False,
+      install_requires=[
+          'requests',
+      ],
       cmdclass={'install': CustomInstall})
